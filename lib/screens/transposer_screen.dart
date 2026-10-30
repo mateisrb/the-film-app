@@ -45,7 +45,7 @@ class _TransposerScreenState extends State<TransposerScreen> {
   @override
   Widget build(BuildContext context) {
     final selectedPreset = scenePresets.firstWhere(
-      (p) => p.id === _selectedPresetId,
+      (p) => p.id == _selectedPresetId,
       orElse: () => scenePresets.first,
     );
 

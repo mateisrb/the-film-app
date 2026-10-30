@@ -79,7 +79,6 @@ class ReciprocityService {
         break;
 
       case ReciprocityCurve.generic:
-      default:
         finalTime = math.pow(baseSeconds, 1.30).toDouble();
         notes = 'Standard Schwarzschild curve (T^1.30)';
         break;

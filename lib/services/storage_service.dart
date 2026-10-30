@@ -55,6 +55,24 @@ class StorageService {
     await prefs.setString(_camerasKey, jsonStr);
   }
 
+  static Future<List<LensProfile>> loadLenses() async {
+    final prefs = await SharedPreferences.getInstance();
+    final jsonStr = prefs.getString(_lensesKey);
+    if (jsonStr != null) {
+      try {
+        final List<dynamic> list = jsonDecode(jsonStr);
+        return list.map((e) => LensProfile.fromJson(e)).toList();
+      } catch (_) {}
+    }
+    return defaultLenses;
+  }
+
+  static Future<void> saveLenses(List<LensProfile> lenses) async {
+    final prefs = await SharedPreferences.getInstance();
+    final jsonStr = jsonEncode(lenses.map((l) => l.toJson()).toList());
+    await prefs.setString(_lensesKey, jsonStr);
+  }
+
   static Future<List<FilmStock>> loadFilmStocks() async {
     final prefs = await SharedPreferences.getInstance();
     final jsonStr = prefs.getString(_stocksKey);

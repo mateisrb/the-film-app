@@ -220,7 +220,7 @@ class _RollLoggerScreenState extends State<RollLoggerScreen> {
                         children: [
                           Expanded(
                             child: DropdownButtonFormField<double>(
-                              value: _currentAperture,
+                              initialValue: _currentAperture,
                               decoration: const InputDecoration(
                                 labelText: 'Aperture',
                                 border: OutlineInputBorder(),

@@ -67,9 +67,11 @@ class _MainNavigationShellState extends State<MainNavigationShell> {
 
   Future<void> _loadGear() async {
     final cams = await StorageService.loadCameras();
+    final lenses = await StorageService.loadLenses();
     final stocks = await StorageService.loadFilmStocks();
     setState(() {
       _cameras = cams;
+      _lenses = lenses;
       _filmStocks = stocks;
     });
   }
